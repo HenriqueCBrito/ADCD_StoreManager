@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Filial</title>
+</head>
+<body>
+    <h1>Cadastrar Nova Filial</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nome">Nome da Filial:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="dono">Nome do Dono:</label>
+        <input type="text" id="dono" name="dono" required><br><br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <label for="empresa">Empresa:</label>
+        <select id="empresa" name="empresa_id" required>
+            <option value="">Selecione a Empresa</option>
+            {% for empresa in empresas %}
+                <option value="{{ empresa.id }}">{{ empresa.nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Cadastrar Filial</button>
+    </form>
+</body>
+</html>

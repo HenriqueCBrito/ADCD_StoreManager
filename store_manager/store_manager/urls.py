@@ -21,3 +21,9 @@ from django.urls import path
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
+
+from . import views
+
+urlpatterns = [
+    path('cadastrar-filial/', views.cadastrar_filial, name='cadastrar_filial'),
+]
